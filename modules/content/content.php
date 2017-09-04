@@ -19,7 +19,7 @@
 		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('sprouts-home-thumb'); ?></a>
 	<?php else : 
 		?>
-		<a href="<?php the_permalink(); ?>"><img src="<?php echo get_template_directory_uri() . '/images/dthumb.jpg'; ?>"></a>
+		<a href="<?php the_permalink(); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/images/dthumb.jpg'; ?>"></a>
 	<?php endif;
 		?>
 

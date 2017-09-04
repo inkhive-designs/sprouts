@@ -1,0 +1,41 @@
+#footer-sidebar {
+  line-height: 2.2em;
+  a {
+    font-weight: 400;
+  }
+  aside {
+    font-size: 13px;
+    ul.children, ul.sub-menu {
+      padding-left: 20px;
+    }
+    h1.widget-title {
+      position: relative;
+      font-size: 22px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: @color1;
+      &:before {
+        content: "\f085";
+        font-family: "FontAwesome";
+        font-size: 40px;
+        position: absolute;
+        color: #eee;
+        z-index: -1;
+        left: -15px;
+        top: -8px;
+      }
+    }
+    ul {
+      list-style : none;
+      margin: 0px;
+      padding-left: 5px;
+      li:before {
+        content: "\f105";
+        font-family: "FontAwesome";
+        margin-right: 20px;
+        padding: 3px 7px;
+        color: @color2;
+      }
+    }
+  }
+}

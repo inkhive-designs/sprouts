@@ -1,0 +1,143 @@
+/*---- Single Post ----*/
+
+.single {
+  #primary {
+    h1.entry-title {
+      font-size: xx-large;
+      font-weight: 700;
+      color: #666;
+    }
+    .entry-meta {
+      text-transform: uppercase;
+      font-size: 12px;
+      margin: 20px auto;
+      a {
+        color: @color2;
+        font-weight: 700;
+      }
+      .byline {
+        float: right;
+      }
+    }
+    img.attachment-post-thumbnail {
+      width: 80%;
+      margin: auto;
+      display: block;
+    }
+    .entry-content {
+      padding: 0px 10px;
+    }
+    .entry-footer {
+      display: inline-block;
+      text-align: center;
+      position: relative;
+      width:100%;
+      overflow: visible;
+      border-top: solid 2px @color3;
+      margin: 40px auto;
+      padding: 15px 0;
+      a {
+        color: @color1;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .cat-links {
+        color: @color2;
+        position: relative;
+        overflow: visible;
+        height: auto;
+        padding: 10px;
+        transition: opacity ease-in-out .4s, top ease-in-out .4s;
+        &:before {
+          content: "\f07c";
+          font-family: "FontAwesome";
+          position: absolute;
+          font-size: 40px;
+          color: #eee;
+          z-index: -1;
+          margin-left: -20px;
+        }
+      }
+
+
+      .tags-links {
+        color: @color2;
+        position: relative;
+        overflow: visible;
+        height: auto;
+        padding: 10px;
+        transition: opacity ease-in-out .4s, top ease-in-out .4s;
+        &:before {
+          content: "\f02b";
+          font-family: "FontAwesome";
+          position: absolute;
+          font-size: 40px;
+          color: #eee;
+          z-index: -1;
+          margin-left: -20px;
+        }
+      }
+
+
+      .comments-link {
+        color: @color2;
+        position: relative;
+        height: auto;
+        padding: 10px;
+        transition: opacity ease-in-out .4s, top ease-in-out .4s;
+        &:before {
+          content: "\f075";
+          font-family: "FontAwesome";
+          position: absolute;
+          font-size: 40px;
+          color: #eee;
+          z-index: -1;
+          margin-left: -20px;
+        }
+      }
+
+      .edit-link {
+        float: right;
+        a {
+          color: @site-color;
+        }
+      }
+    }
+    nav.post-navigation {
+      .nav-links {
+        font-weight: 400;
+        margin: 0px 20px;
+        font-style: italic;
+        a {
+          color: @color2;
+        }
+        .nav-previous {
+          position: relative;
+          &:before {
+            content: "\f100";
+            font-family: "FontAwesome";
+            position: absolute;
+            left: -15px;
+            font-size: 40px;
+            color: #eee;
+            z-index: -1;
+          }
+        }
+        .nav-next {
+          position: relative;
+          &:after {
+            content: "\f101";
+            font-family: "FontAwesome";
+            position: absolute;
+            right: -15px;
+            font-size: 40px;
+            color: #eee;
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+}

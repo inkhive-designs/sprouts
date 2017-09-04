@@ -1,0 +1,55 @@
+/*---Pagination----*/
+
+.pagination {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  ul {
+    li {
+      list-style: none;
+      float: none;
+      display: inline-block;
+      margin: 10px;
+      position: relative;
+      a, span {
+        padding: 10px 18px;
+        display: block;
+        position: relative;
+      }
+      a.page-numbers {
+        border-radius: 50%;
+        color: white;
+        transition: color ease .4s;
+        .fa-circle {
+          position: absolute;
+          color: @color2;
+          z-index: -1;
+          font-size: 60px;
+          left: -4px;
+          top: -5px;
+        }
+        .circle-2 {
+          transform: scale(0,0);
+          transition: transform ease .4s;
+          color: lighten(@color3, 5%);
+        }
+        &:hover {
+          color: #666;
+          .circle-2 {
+            transform: scale(.9,.9);
+          }
+        }
+      }
+      a.next, a.prev {
+        color: @color1;
+      }
+      span {
+        color: #666;
+        .fa-circle {
+          display: none;
+        }
+      }
+    }
+  }
+}

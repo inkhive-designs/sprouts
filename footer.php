@@ -42,11 +42,10 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="copyright">
                 	<?php esc_attr_e( 'Copyright &copy;', 'sprouts' ); ?>  <?php bloginfo( 'name' ); ?>
-                </div> 
+        </div>
+
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'sprouts' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'sprouts' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( '%1$s WordPress Theme by %2$s.', 'sprouts' ), 'Sprouts', '<a href="https://www.inkhive.com/" rel="designer">InkHive</a>' ); ?>
+			<?php echo ( get_theme_mod('sprouts_footer_text') == '') ? ( '<a href="https://www.wordpress.org/" rel="designer">Proudly powered by WordPress</a><span class="sep"> | </span>' .  'Sprouts WordPress Theme by ' ). '<a href="https://www.inkhive.com/" rel="designer">InkHive</a>' : esc_html(get_theme_mod('sprouts_footer_text')); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	</div><!-- #footer-wrapper>

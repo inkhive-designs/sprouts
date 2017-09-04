@@ -1,0 +1,125 @@
+/*---- Search and other Archive pages ----*/
+
+.search, .archive {
+  #content {
+    #primary {
+      header.page-header {
+        border-bottom: 0px;
+        h1.page-title {
+          color: @color1;
+        }
+        .taxonomy-description {
+          font-weight: 400;
+          color: #aaa;
+        }
+      }
+      article {
+        border-bottom: 0px;
+        h1.entry-title {
+          font-weight: 700;
+          font-size: xx-large;
+        }
+        .entry-meta {
+          font-weight: 700;
+          margin: 15px 0;
+          a {
+            color: @color2;
+          }
+          .byline {
+            float: right;
+          }
+        }
+        .featured-thumb {
+          text-align: center;
+          img {
+            width: 70%;
+            display: inline-block;
+            margin: auto;
+          }
+        }
+        .entry-summary {
+          padding: 0 20px;
+          margin-top: 10px;
+        }
+        .entry-footer {
+          display: inline-block;
+          text-align: center;
+          position: relative;
+          width:100%;
+          overflow: visible;
+          border-top: solid 2px @color3;
+          margin: 20px 0px 40px 0px;
+          padding: 15px 0;
+          a {
+            color: @color1;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 12px;
+          }
+
+          .cat-links {
+            color: @color2;
+            position: relative;
+            overflow: visible;
+            height: auto;
+            padding: 10px;
+            transition: opacity ease-in-out .4s, top ease-in-out .4s;
+            &:before {
+              content: "\f07c";
+              font-family: "FontAwesome";
+              position: absolute;
+              font-size: 40px;
+              color: #eee;
+              z-index: -1;
+              margin-left: -20px;
+            }
+          }
+
+
+          .tags-links {
+            color: @color2;
+            position: relative;
+            overflow: visible;
+            height: auto;
+            padding: 10px;
+            transition: opacity ease-in-out .4s, top ease-in-out .4s;
+            &:before {
+              content: "\f02b";
+              font-family: "FontAwesome";
+              position: absolute;
+              font-size: 40px;
+              color: #eee;
+              z-index: -1;
+              margin-left: -20px;
+            }
+          }
+
+
+          .comments-link {
+            color: @color2;
+            position: relative;
+            height: auto;
+            padding: 10px;
+            transition: opacity ease-in-out .4s, top ease-in-out .4s;
+            &:before {
+              content: "\f075";
+              font-family: "FontAwesome";
+              position: absolute;
+              font-size: 40px;
+              color: #eee;
+              z-index: -1;
+              margin-left: -20px;
+            }
+          }
+
+          .edit-link {
+            float: right;
+            a {
+              color: @site-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

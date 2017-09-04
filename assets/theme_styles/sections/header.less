@@ -1,0 +1,99 @@
+/*----Header----*/
+
+#top-bar {
+  background: @site-color;
+  border-bottom: solid 3px darken(@site-color, 5%);
+  a {
+    color: white;
+  }
+  #search-top {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    text-align: right;
+    #searchform {
+      display: inline-block;
+      text-align: right;
+      padding: 20px 0px;
+      input[type="text"] {
+        background: none;
+        padding: 0px;
+        border: 0px;
+        border-radius: 0px;
+        border-bottom: solid 2px white;
+        outline: none;
+        color: white;
+        &::-webkit-input-placeholder {
+          color: rgba(255,255,255,.5);
+          font-style: italic;
+          font-size: 14px;
+        }
+        &::-moz-placeholder {
+          color: rgba(255,255,255,.5);
+          font-style: italic;
+          font-size: 14px;
+        }
+        &:-moz-placeholder {
+          color: rgba(255,255,255,.5);
+          font-style: italic;
+          font-size: 14px;
+        }
+        &:-ms-placeholder {
+          color: rgba(255,255,255,.5);
+          font-style: italic;
+          font-size: 14px;
+        }
+        &:placeholder {
+          color: rgba(255,255,255,.5);
+          font-style: italic;
+          font-size: 14px;
+        }
+      }
+    }
+    button[type="submit"] {
+      background: none;
+      box-shadow: none;
+      border: 0px;
+    }
+  }
+  #search-icon {
+    position: relative;
+    display: inline-block;
+    padding-top: 5px;
+    i {
+      font-size: 18px;
+      cursor: pointer;
+      text-shadow: none;
+      color: white;
+    }
+  }
+
+}
+
+#masthead {
+  height: 500px;
+  position: relative;
+}
+
+#header-image {
+  position: absolute;
+  height: 500px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.site-branding {
+  padding: 0px 10%;
+  position: relative;
+  top: 35%;
+  .site-title {
+    margin: 0px;
+    font-size: 48px;
+  }
+  .site-description {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}

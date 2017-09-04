@@ -1,0 +1,64 @@
+/*----Comments----*/
+
+#comments {
+  h2.comments-title {
+    margin: 40px 0;
+    color: @link-color;
+    font-weight: 700;
+  }
+  ul {
+    list-style: none;
+    li {
+      margin: 20px 0px;
+      .comment-author {
+        img {
+          display: inline-block;
+          width: 50px;
+        }
+        span {
+          display: none;
+        }
+        .fn {
+          font-style: normal;
+          margin-left: 10px;
+          font-weight: 700;
+        }
+      }
+      .commentmetadata {
+        padding: 20px 5px;
+        font-size: 12px;
+        border-bottom: solid 2px @color2;
+        a {
+          color: @color1;
+        }
+        span {
+          float: right;
+        }
+        a.comment-edit-link {
+          float: right;
+        }
+      }
+      .comment-content {
+        padding: 10px;
+      }
+      .reply {
+        float: right;
+        background: #bbb;
+        padding: 3px 8px;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+  #respond {
+    .form-allowed-tags {
+      display: none;
+    }
+  }
+}
+
+#comments > ul {
+  margin: 0;
+  padding: 0;
+}
