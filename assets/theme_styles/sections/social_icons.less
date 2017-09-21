@@ -1,15 +1,57 @@
-#social-icons {
-  font-size: 20px;
-  padding: 15px 0px;
-  i {
-    padding: 0 5px;
-    color: white;
-    transform: scale(1,1);
+a{
+  text-decoration: none;
+}
+
+.social-icons{
+  position:relative;
+  display:inline-block;
+  top:12px;
+  .common {
+    height: 46px;
+    width:46px;
+    margin-right:8px;
+    font-size: 20px;
+    padding: 8px;
+    text-align:center;
+    display:inline-block;
+    position:relative;
+    i {
+      top: calc(~'100% - 25px');
+      position:relative;
+    }
+  }
+  .default{
+    border:2px solid @white;
+    transition:0.3s all ease;
     &:hover {
-      animation: shake .82s cubic-bezier(.36,.07,.19,.97) both;
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      perspective: 1000px;
+      background:fade(@white, 30%);
+      animation-duration: 0.7s;
+      animation-name:pop-in;
+    }
+  }
+  .style1 {
+    border:1px dashed @white;
+    border-radius:50%;
+    transition:0.7s all ease;
+    &:hover {
+      background:@white;
+      border:1px dashed @site-color;
+      i{
+        transition:0.3s all ease;
+        color:@site-color;
+      }
+    }
+  }
+  .style2 {
+    border: fade(@site-color, 10%) 3px solid;
+    border-radius: 11px;
+    background: @white;
+    transition:0.5s all ease;
+    i {
+      color: @site-color;
+    }
+    &:hover {
+      transform:scale(1.2);
     }
   }
 }

@@ -33,6 +33,14 @@ function sprouts_custom_header_setup() {
 		'admin-head-callback'    => 'sprouts_admin_header_style',
 		'admin-preview-callback' => 'sprouts_admin_header_image',
 	) ) );
+    register_default_headers( array(
+            'default-image'    => array(
+                'url'            => '%s/assets/images/header.jpg',
+                'thumbnail_url'    => '%s/assets/images/header.jpg',
+                'description'    => __('Default Header Image', 'sprouts')
+            )
+        )
+    );
 }
 add_action( 'after_setup_theme', 'sprouts_custom_header_setup' );
 

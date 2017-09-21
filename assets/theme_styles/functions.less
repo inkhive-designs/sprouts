@@ -2,7 +2,6 @@
   transition: @a;
   -webkit-transition: @a;
   -moz-transition: @a;
-  -ms-transition: @a;
   -o-transition: @a;
 }
 .transform( @b ) {
@@ -11,4 +10,26 @@
   -moz-transform: @b;
   -ms-transform: @b;
   -o-transform: @b;
+}
+
+
+@-webkit-keyframes pop-in {
+  0%   { transform:scale(1); }
+  50%  { transform:scale(0.8); }
+  100% { transform:scale(1); }
+}
+@-moz-keyframes pop-in {
+  0%   { transform:scale(1); }
+  50%  { transform:scale(0.8); }
+  100% { transform:scale(1); }
+}
+@-o-keyframes pop-in {
+  0%   { transform:scale(1); }
+  50%  { transform:scale(0.8); }
+  100% { transform:scale(1); }
+}
+@keyframes pop-in {
+  0%   { transform:scale(1); }
+  50%  { transform:scale(0.8); }
+  100% { transform:scale(1); }
 }

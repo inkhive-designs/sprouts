@@ -80,6 +80,7 @@ if ( ! function_exists( 'sprouts_setup' ) ) :
          */
         add_theme_support( 'post-thumbnails' );
         add_image_size('sprouts-home-thumb',800,600, true);
+        add_image_size('sprouts-grid-thumb',600,428, true);
 
     }
 endif; // sprouts_setup

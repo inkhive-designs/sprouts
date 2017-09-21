@@ -1,44 +1,18 @@
 <?php
-/**
- * The social icon template of the theme.
- *
- * @package sprouts
- */
-?>
+/*
+** Template to Render Social Icons on Top Bar
+*/
+$social_icons_styles = get_theme_mod('sprouts_social_icon_style','default'); ?>
 
+    <div class="social-icons col-md-6 col-sm-12">
+<?php for ($i = 1; $i < 8; $i++) :
+    $social = esc_attr( get_theme_mod('sprouts_social_'.$i) );
+    if ( ($social != 'none') && ($social != '') ) : ?>
+        <a class="common <?php echo $social_icons_styles; ?>" href="<?php echo esc_url( get_theme_mod('sprouts_social_url'.$i) ); ?>">
+            <i class="fa-fw fa fa-<?php echo $social; ?>"></i>
+        </a>
+    <?php endif;
 
-<div id="social-icons" class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+endfor; ?>
+    </div>
 
-	<?php 
-	$s = array(
-				"facebook",
-				"twitter",
-				"google-plus",
-				"instagram",
-				"youtube",
-				"pinterest-p",
-				"vimeo",
-				"envelope"
-			  );
-			  
-	$t = array(
-				"Facebook",
-				"Twitter",
-				"Google Plus",
-				"Instagram",
-				"Youtube",
-				"Pinterest",
-				"Vimeo",
-				"Mail"
-			);
-			  
-	for($u = 0; $u < 8; $u++) {
-		$v[$u] 	= "sprouts-" . $s[$u];
-		if (get_theme_mod($v[$u])) {
-	?>
-		<a target="_blank" href="<?php echo esc_url( get_theme_mod($v[$u]) ); ?>" title="<?php echo ($t[$u]) ?>"><span class="fa-stack fa-lg"><i class="fa fa-<?php echo $s[$u] ?>"></i></span></a>
-	<?php }
-	}
-	?>
-
-</div>

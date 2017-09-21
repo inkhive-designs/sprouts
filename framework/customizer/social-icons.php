@@ -1,167 +1,107 @@
 <?php
 
 function sprouts_customize_register_social_icons($wp_customize){
-    $wp_customize-> add_section(
-        'sprouts-sec1',
-        array(
-            'title'			=> __('Social Settings','sprouts'),
-            'description'	=> __('Manage the Social Icon Setings of your site.','sprouts'),
-            'priority'		=> 70,
+    // Social Icons
+    $wp_customize->add_section('sprouts_social_section', array(
+        'title' => __('Social Icons','sprouts'),
+        'priority' => 44,
+    ));
+
+    $social_icon_styles = array(
+        'default' => __('Default', 'sprouts'),
+        'style1' => __('Style 1', 'sprouts'),
+        'style2' => __('Style 2', 'sprouts'),
+    );
+
+    $wp_customize->add_setting('sprouts_social_icon_style', array(
+        'default' => 'default',
+        'sanitize_callback' => 'sprouts_sanitize_social_style'
+    ) );
+
+    function sprouts_sanitize_social_style($input) {
+        $social_icon_styles = array(
+            'default',
+            'style1',
+            'style2',
+        );
+        if ( in_array($input, $social_icon_styles))
+            return $input;
+        else
+            return '';
+    }
+
+    $wp_customize->add_control('sprouts_social_icon_style', array(
+            'setting' => 'sprouts_social_icon_style',
+            'section' => 'sprouts_social_section',
+            'label' => __('Social Icon Effects', 'sprouts'),
+            'type' => 'select',
+            'choices' => $social_icon_styles,
         )
     );
 
-    $wp_customize-> add_setting(
-        'sprouts-social',
-        array(
-            'default'			=> false,
-            'sanitize_callback'	=> 'sprouts_sanitize_checkbox',
-        )
+    $social_networks = array( //Redefinied in Sanitization Function.
+        'none' => __('-','sprouts'),
+        'facebook' => __('Facebook','sprouts'),
+        'twitter' => __('Twitter','sprouts'),
+        'google-plus' => __('Google Plus','sprouts'),
+        'instagram' => __('Instagram','sprouts'),
+        'rss' => __('RSS Feeds','sprouts'),
+        'vine' => __('Vine','sprouts'),
+        'vimeo-square' => __('Vimeo','sprouts'),
+        'youtube' => __('Youtube','sprouts'),
+        'flickr' => __('Flickr','sprouts'),
     );
 
-    $wp_customize-> add_control(
-        'sprouts-social',
-        array(
-            'type'		=> 'checkbox',
-            'label'		=> __('Enable Social Icons','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'priority'	=> 1,
-        )
-    );
+    $social_count = count($social_networks);
 
-    $wp_customize-> add_setting(
-        'sprouts-facebook',
-        array(
-            'default'	=> '',
-            'sanitize_callback' => 'esc_url_raw',
-        )
-    );
+    for ($x = 1 ; $x <= ($social_count - 3) ; $x++) :
 
-    $wp_customize-> add_control(
-        'sprouts-facebook',
-        array(
-            'label'		=> __('Facebook URL','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'type'		=> 'text',
-        )
-    );
+        $wp_customize->add_setting(
+            'sprouts_social_'.$x, array(
+            'sanitize_callback' => 'sprouts_sanitize_social',
+            'default' => 'none'
+        ));
 
-    $wp_customize-> add_setting(
-        'sprouts-twitter',
-        array(
-            'default'	=> '',
-            'sanitize_callback' => 'esc_url_raw',
-        )
-    );
+        $wp_customize->add_control( 'sprouts_social_'.$x, array(
+            'settings' => 'sprouts_social_'.$x,
+            'label' => __('Icon ','sprouts').$x,
+            'section' => 'sprouts_social_section',
+            'type' => 'select',
+            'choices' => $social_networks,
+        ));
 
-    $wp_customize-> add_control(
-        'sprouts-twitter',
-        array(
-            'label'		=> __('Twitter URL','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'type'		=> 'text',
-        )
-    );
+        $wp_customize->add_setting(
+            'sprouts_social_url'.$x, array(
+            'sanitize_callback' => 'esc_url_raw'
+        ));
 
-    $wp_customize-> add_setting(
-        'sprouts-google-plus',
-        array(
-            'default'	=> '',
-            'sanitize_callback' => 'esc_url_raw',
-        )
-    );
+        $wp_customize->add_control( 'sprouts_social_url'.$x, array(
+            'settings' => 'sprouts_social_url'.$x,
+            'description' => __('Icon ','sprouts').$x.__(' Url','sprouts'),
+            'section' => 'sprouts_social_section',
+            'type' => 'url',
+            'choices' => $social_networks,
+        ));
 
-    $wp_customize-> add_control(
-        'sprouts-google-plus',
-        array(
-            'label'		=> __('Google Plus URL','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'type'		=> 'text',
-        )
-    );
+    endfor;
 
-    $wp_customize-> add_setting(
-        'sprouts-instagram',
-        array(
-            'default'	=> '',
-            'sanitize_callback' => 'esc_url_raw',
-        )
-    );
-
-    $wp_customize-> add_control(
-        'sprouts-instagram',
-        array(
-            'label'		=> __('Instagram URL','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'type'		=> 'text',
-        )
-    );
-
-    $wp_customize-> add_setting(
-        'sprouts-pinterest-p',
-        array(
-            'default'	=> '',
-            'sanitize_callback' => 'esc_url_raw',
-        )
-    );
-
-    $wp_customize-> add_control(
-        'sprouts-pinterest-p',
-        array(
-            'label'		=> __('Pinterest URL','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'type'		=> 'text',
-        )
-    );
-
-    $wp_customize-> add_setting(
-        'sprouts-youtube',
-        array(
-            'default'	=> '',
-            'sanitize_callback' => 'esc_url_raw',
-        )
-    );
-
-    $wp_customize-> add_control(
-        'sprouts-youtube',
-        array(
-            'label'		=> __('Youtube URL','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'type'		=> 'text',
-        )
-    );
-
-    $wp_customize-> add_setting(
-        'sprouts-vimeo',
-        array(
-            'default'	=> '',
-            'sanitize_callback' => 'esc_url_raw',
-        )
-    );
-
-    $wp_customize-> add_control(
-        'sprouts-vimeo',
-        array(
-            'label'		=> __('Vimeo URL','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'type'		=> 'text',
-        )
-    );
-
-    $wp_customize-> add_setting(
-        'sprouts-envelope',
-        array(
-            'default'	=> '',
-            'sanitize_callback' => 'esc_url_raw',
-        )
-    );
-
-    $wp_customize-> add_control(
-        'sprouts-envelope',
-        array(
-            'label'		=> __('Your E-Mail Info','sprouts'),
-            'section'	=> 'sprouts-sec1',
-            'type'		=> 'text',
-        )
-    );
+    function sprouts_sanitize_social( $input ) {
+        $social_networks = array(
+            'none' ,
+            'facebook',
+            'twitter',
+            'google-plus',
+            'instagram',
+            'rss',
+            'vine',
+            'vimeo-square',
+            'youtube',
+            'flickr'
+        );
+        if ( in_array($input, $social_networks) )
+            return $input;
+        else
+            return '';
+    }
 }
 add_action('customize_register', 'sprouts_customize_register_social_icons');
