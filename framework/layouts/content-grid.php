@@ -25,7 +25,7 @@
                     </a>
                 </h1>
                 <span class="entry-excerpt"><?php echo substr(get_the_excerpt(),0,200).(get_the_excerpt() ? "..." : "" ); ?></span>
-                <span class="readmore"><a class="hvr-underline-from-center" href="<?php the_permalink() ?>"><?php _e('Read More','plum'); ?></a></span>
+                <span class="readmore"><a class="hvr-underline-from-center" href="<?php the_permalink() ?>"><?php _e('Read More','sprouts'); ?></a></span>
             </div><!-- .entry-header -->
         </div><!--.out-thumb-->
 

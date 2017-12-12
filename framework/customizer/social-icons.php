@@ -5,6 +5,7 @@ function sprouts_customize_register_social_icons($wp_customize){
     $wp_customize->add_section('sprouts_social_section', array(
         'title' => __('Social Icons','sprouts'),
         'priority' => 44,
+        'panel' => 'sprouts_header_panel'
     ));
 
     $social_icon_styles = array(

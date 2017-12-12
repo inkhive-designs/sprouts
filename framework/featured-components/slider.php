@@ -1,5 +1,5 @@
 
-<div id="slider-wrapper" class="container">
+<div id="slider-wrapper">
     <?php if (is_home() && get_theme_mod('sprouts-slide-enable')) { ?>
         <ul class="bxslider">
             <?php

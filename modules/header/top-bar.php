@@ -11,7 +11,9 @@
                 <div><input type="text" placeholder="Search..." size="18" value="" name="s" id="s" />
                 </div>
             </form>
-            <div id="search-icon"><i class="fa fa-search"></i></div>
+            <div id="search-icon">
+                    <i class="fa fa-search"></i>
+            </div>
         </div>
     </div>
 </div>

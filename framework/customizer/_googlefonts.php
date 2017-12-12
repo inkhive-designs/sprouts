@@ -5,6 +5,7 @@ function sprouts_customize_register_googlefonts($wp_customize){
         array(
             'title'     => __('Google Web Fonts','sprouts'),
             'priority'  => 41,
+            'panel'     => 'sprouts_design_panel'
         )
     );
 

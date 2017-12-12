@@ -9,7 +9,7 @@ function sprouts_scripts() {
 
     wp_enqueue_style('sprouts-bootstrap-style',get_template_directory_uri()."/assets/bootstrap/css/bootstrap.min.css", array('sprouts-style'));
 
-    wp_enqueue_style( 'sprouts-main-skin', get_template_directory_uri() . '/assets/theme_styles/css/'.get_theme_mod('sprouts_skin', 'default').'.css', array(), null );
+    wp_enqueue_style( 'sprouts-main-skin', get_template_directory_uri() . '/assets/theme_styles/css/'.get_theme_mod('sprouts_skin', 'default').'.css', array(), 45);
 
     wp_enqueue_style('sprouts-font-awesome',get_template_directory_uri()."/assets/font-awesome/css/font-awesome.css", array('sprouts-main-skin'));
 

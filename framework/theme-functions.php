@@ -10,6 +10,47 @@ require get_template_directory() . '/framework/admin_modules/register_widgets.ph
 require get_template_directory() . '/framework/admin_modules/theme_setup.php';
 
 
+/*
+** Function to check if Sidebar is enabled on Current Page 
+*/
+
+function sprouts_load_sidebar() {
+    $load_sidebar = true;
+    if ( get_theme_mod('sprouts_disable_sidebar', true) ) :
+        $load_sidebar = false;
+    elseif( get_theme_mod('sprouts_disable_sidebar_home',true) && is_home() )	:
+        $load_sidebar = false;
+    elseif( get_theme_mod('sprouts_disable_sidebar_front',true) && is_front_page() ) :
+        $load_sidebar = false;
+    endif;
+
+    return  $load_sidebar;
+}
+
+/*
+**	Determining Sidebar and Primary Width
+*/
+function sprouts_primary_class() {
+    $sw = esc_html(get_theme_mod('sprouts_sidebar_width',4));
+    $class = "col-md-".(12-$sw);
+
+    if ( !sprouts_load_sidebar() )
+        $class = "col-md-12";
+
+    echo $class;
+}
+add_action('sprouts_primary-width', 'sprouts_primary_class');
+
+function sprouts_secondary_class() {
+    $sw = esc_html(get_theme_mod('sprouts_sidebar_width',4));
+    $class = "col-md-".$sw;
+
+    echo $class;
+}
+add_action('sprouts_secondary-width', 'sprouts_secondary_class');
+
+
+
 function sprouts_fonts_url() {
     $fonts_url = '';
 
@@ -85,7 +126,6 @@ add_action('sprouts_blog_layout', 'sprouts_get_blog_layout');
 
 
 function sprouts_comment($comment, $args, $depth) {
-    $GLOBALS['comment'] = $comment;
     extract($args, EXTR_SKIP);
 
     if ( 'div' == $args['style'] ) {
@@ -112,7 +152,7 @@ function sprouts_comment($comment, $args, $depth) {
     <div class="comment-meta commentmetadata"><a href="<?php echo esc_html( get_comment_link( $comment->comment_ID ) ); ?>">
             <?php
             /* translators: 1: date, 2: time */
-            printf( __('%1$s','sprouts'), get_comment_date() ); ?></a><?php edit_comment_link( __( '(Edit)','sprouts' ), '  ', '' );
+            printf( '%1$s', get_comment_date() ); ?></a><?php edit_comment_link( __( '(Edit)','sprouts' ), '  ', '' );
         ?>
     </div>
 
@@ -127,4 +167,46 @@ function sprouts_comment($comment, $args, $depth) {
         </div>
     <?php endif; ?>
     <?php
+}
+
+/*
+ * Pagination Function. Implements core paginate_links function.
+ */
+function sprouts_pagination() {
+    global $wp_query;
+    $big = 12345678;
+    $page_format = paginate_links( array(
+        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        'format' => '?paged=%#%',
+        'current' => max( 1, get_query_var('paged') ),
+        'total' => $wp_query->max_num_pages,
+        'type'  => 'array'
+    ) );
+    if( is_array($page_format) ) {
+        $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
+        echo '<div class="pagination"><div><ul>';
+        echo '<li><span>'. $paged . ' of ' . $wp_query->max_num_pages .'</span></li>';
+        foreach ( $page_format as $page ) {
+            echo "<li>$page</li>";
+        }
+        echo '</ul></div></div>';
+    }
+}
+
+
+//Backwards Compatibility FUnction
+function sprouts_logo() {
+    if ( function_exists( 'the_custom_logo' ) ) {
+        the_custom_logo();
+    }
+}
+
+function sprouts_has_logo() {
+    if (function_exists( 'has_custom_logo')) {
+        if ( has_custom_logo() ) {
+            return true;
+        }
+    } else {
+        return false;
+    }
 }

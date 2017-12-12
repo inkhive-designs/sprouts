@@ -39,3 +39,13 @@ require get_template_directory() . '/framework/customizer/init.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Video widget
+ */
+require get_template_directory() . '/framework/widgets/sprouts-video.php';
+
+/**
+ * Video widget
+ */
+require get_template_directory() . '/framework/widgets/recent-posts.php';

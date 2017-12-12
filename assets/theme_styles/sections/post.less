@@ -11,16 +11,28 @@
       text-transform: uppercase;
       font-size: 12px;
       margin: 20px auto;
-      a {
-        color: @color2;
-        font-weight: 700;
+      span.posted-on {
+        padding: 7px 10px;
+        border: 1px solid @accent;
       }
-      .byline {
+      span.byline {
+        padding: 7px 10px;
+        border: 1px solid @accent;
         float: right;
+        &:before {
+          content: "\f007";
+          font-family: "FontAwesome";
+          margin-right: 5px;
+          color: @accent;
+        }
+      }
+      a {
+        color: @site-color;
+        font-weight: 700;
       }
     }
     img.attachment-post-thumbnail {
-      width: 80%;
+      width: 100%;
       margin: auto;
       display: block;
     }
@@ -28,23 +40,21 @@
       padding: 0px 10px;
     }
     .entry-footer {
+      border-top: 2px solid @content;
       display: inline-block;
       text-align: center;
       position: relative;
       width:100%;
       overflow: visible;
-      border-top: solid 2px @color3;
-      margin: 40px auto;
-      padding: 15px 0;
       a {
-        color: @color1;
+        color: @site-color;
         font-weight: 400;
         text-transform: uppercase;
         font-size: 12px;
       }
 
       .cat-links {
-        color: @color2;
+        color: @site-color;
         position: relative;
         overflow: visible;
         height: auto;
@@ -59,11 +69,14 @@
           z-index: -1;
           margin-left: -20px;
         }
+        a:hover {
+          color: lighten(@site-color, 40%);
+        }
       }
 
 
       .tags-links {
-        color: @color2;
+        color: @site-color;
         position: relative;
         overflow: visible;
         height: auto;
@@ -78,11 +91,14 @@
           z-index: -1;
           margin-left: -20px;
         }
+        a:hover {
+          color: lighten(@site-color, 40%);
+        }
       }
 
 
       .comments-link {
-        color: @color2;
+        color: @site-color;
         position: relative;
         height: auto;
         padding: 10px;
@@ -106,12 +122,14 @@
       }
     }
     nav.post-navigation {
+      border-top: 2px solid @content;
+      padding-top: 7px;
       .nav-links {
         font-weight: 400;
         margin: 0px 20px;
         font-style: italic;
         a {
-          color: @color2;
+          color: @site-color;
         }
         .nav-previous {
           position: relative;

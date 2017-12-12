@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area col-lg-8 col-md-8 col-sm-12 col-xs-12">
+	<div id="primary" class="content-area <?php do_action('sprouts_primary-width') ?>">
 		<main id="main" class="site-main" role="main">
 
             <?php if ( have_posts() ) : ?>
@@ -30,7 +30,7 @@ get_header(); ?>
 
                 <?php endwhile; ?>
 
-                <?php //the_posts_pagination( array( 'mid_size' => 2 ));; ?>
+                <?php sprouts_pagination(); ?>
 
             <?php else : ?>
 

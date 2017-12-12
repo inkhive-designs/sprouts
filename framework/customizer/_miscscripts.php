@@ -5,7 +5,7 @@ function sprouts_customize_register_miscscripts($wp_customize) {
         array(
             'title'			=> __('About Sprouts','sprouts'),
             'description'	=> __('<a href="https://www.wordpress.org/themes/sprouts">Leave a Review</a><br><br><a href="https://www.inkhive.com/product/sprouts-plus">Check Out Sprouts Plus</a><br><br><a href="https://www.inkhive.com">More Themes</a>','sprouts'),
-            'priority'		=> 999,
+            'priority'		=> 1,
         )
     );
 

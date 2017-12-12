@@ -81,12 +81,12 @@ function sprouts_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( '%s', 'post date', 'sprouts' ),
+		'%s',
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		_x( '%s', 'post author', 'sprouts' ),
+		'%s',
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -105,24 +105,24 @@ function sprouts_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( __( ' - ', 'sprouts' ) );
 		if ( $categories_list && sprouts_categorized_blog() ) {
-			printf( '<span class="cat-links col-lg-6 col-md-6 col-sm-6 col-xs-12">' . __( '%1$s', 'sprouts' ) . '</span>', $categories_list );
+			printf( '<span class="cat-links col-lg-6 col-md-6 col-sm-6 col-xs-12">' . '%1$s' . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', __( ' - ', 'sprouts' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links col-lg-6 col-md-6 col-sm-6 col-xs-12">' . __( '%1$s', 'sprouts' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links col-lg-6 col-md-6 col-sm-6 col-xs-12">' . '%1$s'  . '</span>', $tags_list );
 		}
 	}
 
 
-/*
+
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link col-lg-4 col-md-4 col-sm-4 col-xs-12">';
 		comments_popup_link( __( 'Leave a comment', 'sprouts' ), __( '1 Comment', 'sprouts' ), __( '% Comments', 'sprouts' ) );
 		echo '</span>';
 	}
-*/
+
 
 
 	edit_post_link( __( 'Edit', 'sprouts' ), '<div class="edit"><span class="edit-link">', '</span></div>' );

@@ -7,7 +7,7 @@
  */
 function sprouts_widgets_init() {
     register_sidebar( array(
-        'name'          => __( 'Primary Sidebar', 'sprouts' ),
+        'name'          => __( 'Sidebar', 'sprouts' ),
         'id'            => 'sidebar-1',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -18,7 +18,7 @@ function sprouts_widgets_init() {
 
     register_sidebar( array(
         'name'          => __( 'Footer Sidebar 1', 'sprouts' ),
-        'id'            => 'sidebar-2',
+        'id'            => 'footer-1',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -28,7 +28,7 @@ function sprouts_widgets_init() {
 
     register_sidebar( array(
         'name'          => __( 'Footer Sidebar 2', 'sprouts' ),
-        'id'            => 'sidebar-3',
+        'id'            => 'footer-2',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -38,7 +38,7 @@ function sprouts_widgets_init() {
 
     register_sidebar( array(
         'name'          => __( 'Footer Sidebar 3', 'sprouts' ),
-        'id'            => 'sidebar-4',
+        'id'            => 'footer-3',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -48,7 +48,7 @@ function sprouts_widgets_init() {
 
     register_sidebar( array(
         'name'          => __( 'Footer Sidebar 4', 'sprouts' ),
-        'id'            => 'sidebar-5',
+        'id'            => 'footer-4',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',

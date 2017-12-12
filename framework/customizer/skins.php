@@ -1,11 +1,12 @@
 <?php
 function sprouts_customize_register_skin($wp_customize){
     $wp_customize->get_section('colors')->title = __('Theme Skin & Colors','sprouts');
+    $wp_customize->get_section('colors')->panel = 'sprouts_design_panel';
 
     $wp_customize->get_control('header_textcolor')->label = __('Site Title Color','sprouts');
 
     $wp_customize->add_setting('sprouts_header_desccolor', array(
-        'default'     => '#e3554f',
+        'default'     => '#3d3d3d',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
 
@@ -29,7 +30,8 @@ function sprouts_customize_register_skin($wp_customize){
 
     $skins = array( 'default' => __('Default(Sprouts)','sprouts'),
         'green' => __('Green','sprouts'),
-        'brown' => __('Brown', 'sprouts'),
+        'black' => __('Black', 'sprouts'),
+        'orange' => __('Orange', 'sprouts'),
     );
 
     $wp_customize->add_control(
@@ -44,7 +46,7 @@ function sprouts_customize_register_skin($wp_customize){
     );
 
     function sprouts_sanitize_skin( $input ) {
-        if ( in_array($input, array('default','orange','green', 'brown') ) )
+        if ( in_array($input, array('default','orange','green', 'black') ) )
             return $input;
         else
             return '';

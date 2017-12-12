@@ -21,12 +21,8 @@ function sprouts_custom_css_mods() {
     endif;
 
 
-    if ( get_theme_mod('sprouts_header_desccolor','#000000') ) :
+    if ( get_theme_mod('sprouts_header_desccolor','#3d3d3d') ) :
         echo "#masthead h2.site-description { color: ".esc_html(get_theme_mod('sprouts_header_desccolor','#000'))."; }";
-    endif;
-
-    if ( get_theme_mod('sprouts_custom_css') ) :
-        echo  esc_html(get_theme_mod('sprouts_custom_css'));
     endif;
 
     if ( get_theme_mod('sprouts_title_font','HIND') ) :
