@@ -3,7 +3,7 @@
 **Contributors:** (inkhive)  
 **Requires at least:** WordPress 4.4  
 **Tested up to:** WordPress 4.8  
-**Version:** 3.0.0
+**Version:** 3.0.1
 **License:** GPL v3  
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
 **Tags:** custom-background, two-columns, one-column, custom-colors, flexible-header, theme-options, right-sidebar, grid-layout, custom-menu, threaded-comments, translation-ready, featured-images, blog, full-width-template, footer-widgets, entertainment, photography, featured-image-header
@@ -99,3 +99,7 @@ Source: https://www.pexels.com/photo-license/
 * Blog Layouts Setting Added
 * Skins & Other Features Added
 * Bug Fixes
+
+### 3.0.1
+
+* Bugs Free

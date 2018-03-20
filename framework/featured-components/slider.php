@@ -12,7 +12,7 @@
                 if (get_theme_mod($s) != '') {
                     ?>
                     <?php if ( get_theme_mod( $u ) != '' ) { ?>
-                        <a href="<?php get_theme_mod( $u , ''); ?>">
+                        <a href="<?php echo get_theme_mod( $u , ''); ?>">
                     <?php } ?>
                     <li>
                         <div class="slide"><div class="overlay"></div><img src = <?php echo esc_url( get_theme_mod($s) ); ?>>

@@ -16,8 +16,8 @@ function sprouts_custom_css_mods() {
 
     endif;
 
-    if ( get_header_textcolor() ) :
-        echo "#masthead h1.site-title a { color: #".get_header_textcolor()."; }";
+    if ( get_theme_mod('sprouts_site_titlecolor', '#666666') ) :
+        echo "#masthead h1.site-title a { color: ".esc_html(get_theme_mod('sprouts_site_titlecolor','#000'))."; }";
     endif;
 
 

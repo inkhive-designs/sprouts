@@ -1,33 +1,32 @@
 <?php
 function sprouts_customize_register_miscscripts($wp_customize) {
-    $wp_customize-> add_section(
-        'sprouts-pro',
+    $wp_customize->add_section(
+        'sprouts_sec_pro',
         array(
-            'title'			=> __('About Sprouts','sprouts'),
-            'description'	=> __('<a href="https://www.wordpress.org/themes/sprouts">Leave a Review</a><br><br><a href="https://www.inkhive.com/product/sprouts-plus">Check Out Sprouts Plus</a><br><br><a href="https://www.inkhive.com">More Themes</a>','sprouts'),
-            'priority'		=> 1,
+            'title'     => __('Important Links','sprouts'),
+            'priority'  => 10,
         )
     );
-
-
 
     $wp_customize->add_setting(
-        'pro_hide',
-        array(
-            'default'			=> false,
-            'sanitize_callback'	=> 'sprouts_sanitize_checkbox',
-        )
+        'sprouts_pro',
+        array( 'sanitize_callback' => 'esc_textarea' )
     );
 
-    $wp_customize-> add_control( new sprouts_Customize_Control( $wp_customize,
-        'pro_hide',
-        array(
-            'type'		=> 'checkbox',
-            'label'		=> __('Hide this section forever.','sprouts'),
-            'section'	=> 'sprouts-pro',
-            'setting'	=> 'pro_hide',
-            'priority'	=> 1,
+    $wp_customize->add_control(
+        new Sprouts_WP_Customize_Upgrade_Control(
+            $wp_customize,
+            'sprouts_pro',
+            array(
+                'description'	=> '<a class="sprouts-important-links" href="https://inkhive.com/contact-us/" target="_blank">'.__('InkHive Support Forum', 'sprouts').'</a>
+                                    <a class="sprouts-important-links" href="https://inkhive.com/documentation/sprouts" target="_blank">'.__('Sprouts Documentation', 'sprouts').'</a>
+                                    <a class="sprouts-important-links" href="https://demo.inkhive.com/sprouts-plus/" target="_blank">'.__('Sprouts Plus Live Demo', 'sprouts').'</a>
+                                    <a class="sprouts-important-links" href="https://www.facebook.com/inkhivethemes/" target="_blank">'.__('We Love Our Facebook Fans', 'sprouts').'</a>
+                                    <a class="sprouts-important-links" href="https://wordpress.org/support/theme/sprouts/reviews" target="_blank">'.__('Review Sprouts on WordPress', 'sprouts').'</a>',
+                'section' => 'sprouts_sec_pro',
+                'settings' => 'sprouts_pro',
+            )
         )
-    ));
+    );
 }
 add_action('customize_register', 'sprouts_customize_register_miscscripts');

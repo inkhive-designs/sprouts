@@ -5,6 +5,21 @@ function sprouts_customize_register_skin($wp_customize){
 
     $wp_customize->get_control('header_textcolor')->label = __('Site Title Color','sprouts');
 
+    $wp_customize->add_setting('sprouts_site_titlecolor', array(
+        'default'     => '#666666',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+            $wp_customize,
+            'sprouts_site_titlecolor', array(
+            'label' => __('Site Title Color','sprouts'),
+            'section' => 'colors',
+            'settings' => 'sprouts_site_titlecolor',
+            'type' => 'color'
+        ) )
+    );
+
     $wp_customize->add_setting('sprouts_header_desccolor', array(
         'default'     => '#3d3d3d',
         'sanitize_callback' => 'sanitize_hex_color',

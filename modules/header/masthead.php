@@ -1,5 +1,5 @@
 <header id="masthead" class="site-header" role="banner">
-    <div class="site-branding">
+    <div class="site-branding container">
         <?php if ( sprouts_has_logo() ) : ?>
         <div id="site-logo">
             <?php sprouts_logo(); ?>
@@ -10,6 +10,5 @@
             <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
         </div>
     </div><!-- .site-branding -->
-    <div id="header-image"></div>
 
 </header><!-- #masthead -->
